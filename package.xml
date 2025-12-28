@@ -4,8 +4,8 @@
   <name>gazebo_ackermann_steering_vehicle</name>
   <version>0.0.0</version>
   <description>A ROS 2 package for simulating an Ackermann steering vehicle. Includes robot modeling, control, and Gazebo simulation integration.</description>
-  <maintainer email="lucasrmazzetto@gmail.com">Lucas Mazzetto</maintainer>
-  <license>Apache License 2.0</license>
+  <maintainer email="workabotic@gmail.com">Lucas Mazzetto</maintainer>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   
