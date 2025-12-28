@@ -1,6 +1,6 @@
-# Ackermann Steering Vehicle Simulation
+# Gazebo Ackermann Steering Vehicle
 
-## ✨ About
+## 🚗 About
 
 This package, built with ROS 2 Jazzy Jalisco and Gazebo Harmonic, launches a simulation of an Ackermann steering vehicle. The vehicle model includes steering angle and velocity control, along with an embedded front camera that streams live images for vision-based tasks. This setup could be used for developing and testing autonomous driving algorithms in a simulated environment. 
 
@@ -8,7 +8,21 @@ This package, built with ROS 2 Jazzy Jalisco and Gazebo Harmonic, launches a sim
 
 For the complete documentation on the development of this package, including setup, modeling, and simulation steps, please refer to the full guide here: [Ackermann Steering Vehicle Simulation](https://workabotic.com/2025/ackermann-steering-vehicle-simulation/)
 
-## 📚 Requirements
+## 💻 Instalation
+
+Clone this repository into your ```workspace/src``` folder. If you don't have a workspace set up, you can learn more about creating one in the [ROS 2 workspace tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
+
+```bash
+cd <path_to_your_workspace>/src
+
+git clone git@github.com:lucasmazz/gazebo_ackermann_steering_vehicle.git
+```
+
+### 🐧 Linux Setup
+
+This project is designed to run on Linux Ubuntu 24.04 and may also work on other Linux versions or distributions, although additional adjustments might be required. 
+
+#### 📚 Requirements
 
 To use this package, you'll need the following:
 
@@ -30,90 +44,79 @@ sudo apt install -y \
      ros-jazzy-joy                           
 ```
 
-## 🛠️ Linux Setup
+#### 🛠️ Build
 
-This project is designed for Linux Ubuntu 24.04. It may work on other versions or distributions, but some adjustments could be necessary. To avoid changing your OS, you can use [Docker](#docker-usage) for an easier and more consistent setup across environments.
-
-### Clone the Repository
-
-Clone this repository into your ```workspace/src``` folder. If you don't have a workspace set up, you can learn more about creating one in the [ROS 2 workspace tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Creating-A-Workspace/Creating-A-Workspace.html).
-
-```bash
-cd <path_to_your_workspace>/src
-git clone git@github.com:lucasmazz/gazebo_ackermann_steering_vehicle.git
-```
-
-### Build the Package
 Source the ROS 2 environment and build the package:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+
 cd <path_to_your_workspace>
+
 colcon build
 ```
 
-## 🛠️ Docker Setup
+After a successful build, the package is ready to be used.
+
+### 🐳 Docker Setup
 
 **[Docker](https://www.docker.com/)** is required to build and run this project using the Docker setup. It ensures a consistent environment and simplifies dependency management across different systems. Make sure Docker is properly installed and running on your machine before proceeding with the build and execution steps.
 
-### Clone the Repository
-
-Clone this repository to a preferred location on your machine.
-
-```bash
-git clone git@github.com:lucasmazz/gazebo_ackermann_steering_vehicle.git
-```
-
-### Build the Container
+#### 🛠️ Build
 
 Navigate to the project directory and run the `build_docker.sh` script to build the Docker container. Make sure you're inside the folder, as the script depends on local files. The build may take a while, depending on your internet speed and system performance.
 
 ```bash
-cd gazebo_ackermann_steering_vehicle
+cd <path_to_your_workspace>/src/gazebo_ackermann_steering_vehicle
+
 ./build_docker.sh
 ```
 
-### Run the Container
+#### 🏃 Run
 
 To run the Docker container, make sure you're in the project directory and execute the `run_docker.sh` script. This will open a command line with the environment fully configured. You can run this script as many times as needed, and each time it will launch a new command line session inside the Docker container, ready to execute commands within the configured environment.
 
 ```bash
-cd gazebo_ackermann_steering_vehicle
+cd <path_to_your_workspace>/src/gazebo_ackermann_steering_vehicle
+
 ./run_docker.sh
 ```
 
 For instance, if you need to run the simulation, simply execute the `run_docker.sh` script to open a command line inside the Docker container and execute the following command:
 
 ```bash
-cd gazebo_ackermann_steering_vehicle
+cd <path_to_your_workspace>/src/gazebo_ackermann_steering_vehicle
+
 ./run_docker.sh
+
 ros2 launch gazebo_ackermann_steering_vehicle vehicle.launch.py
 ```
 
 To use the joystick, open a new command line inside the Docker container by running the `run_docker.sh` script again in a new terminal. Once inside, execute the following command:
 
 ```bash
-cd gazebo_ackermann_steering_vehicle
+cd <path_to_your_workspace>/src/gazebo_ackermann_steering_vehicle
+
 ./run_docker.sh
+
 ros2 launch gazebo_ackermann_steering_vehicle joystick.launch.py
 ```
 
-For more advanced usage and details, please refer to the next section of the documentation.
-
 ## 🚀 Usage
 
-### Launch the Vehicle
+### 🚗 Launch the Vehicle
 
 After building the package, launch the ```vehicle.launch.py``` file from the ```gazebo_ackermann_steering_vehicle``` package:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+
 cd <path_to_your_workspace>
+
 source install/setup.bash
+
 ros2 launch gazebo_ackermann_steering_vehicle vehicle.launch.py
 ```
-
-#### Arguments
 
 To launch the robot in a specified world with a custom initial pose, run the ```vehicle.launch.py``` file and specify the world path and robot pose arguments.
 
@@ -131,7 +134,7 @@ In the following example, the robot starts at position (x, y, z) = (1.0, 2.0, 0.
 ros2 launch gazebo_ackermann_steering_vehicle vehicle.launch.py world:=/path_to_world/world.sdf x:=1.0 y:=2.0 z:=0.5 R:=0.0 P:=0.0 Y:=1.57
 ```
 
-### Control the Vehicle
+### 🎮 Control
 
 #### Topics
 
@@ -149,7 +152,7 @@ The following topics can be subscribed to access the camera image and retrieve i
 /camera/info
 ```
 
-#### Joystick
+#### 🕹️ Joystick
 
 To control the vehicle, you can use a video game joystick by launching ```joystick.launch.py```. This launch file starts the joystick_controller node, designed specifically for compatibility with an Xbox One joystick, to interface with the ```velocity``` and ```steering_angle``` topics.
 
@@ -157,8 +160,11 @@ To launch the ```joystick.launch.py```, run the following commands:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
+
 cd <path_to_your_workspace>
+
 source install/setup.bash
+
 ros2 launch gazebo_ackermann_steering_vehicle joystick.launch.py
 ```
 
