@@ -15,7 +15,7 @@ Clone this repository into your ```workspace/src``` folder. If you don't have a 
 ```bash
 cd <path_to_your_workspace>/src
 
-git clone git@github.com:lucasmazz/gazebo_ackermann_steering_vehicle.git
+git clone git@github.com:lucasmazzetto/gazebo_ackermann_steering_vehicle.git
 ```
 
 ### 🐧 Linux Setup
