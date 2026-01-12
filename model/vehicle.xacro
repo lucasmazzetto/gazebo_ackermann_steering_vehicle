@@ -19,7 +19,7 @@
   <xacro:arg name="camera_stick_size" default="0.2" />
   <xacro:arg name="camera_height" default="1.5" />
   <xacro:arg name="camera_pitch" default="0.1" />
-  <xacro:arg name="camera_fov" default="90" />
+  <xacro:arg name="camera_fov" default="1.396263" />
   <xacro:arg name="camera_fps" default="30" />
   <xacro:arg name="image_width" default="640" />
   <xacro:arg name="image_height" default="480" />
@@ -359,7 +359,6 @@
   <joint name="camera_joint" type="fixed">
     <axis xyz="0 1 0" />
     <origin xyz="0.0 ${-camera_box_size/2 - camera_stick_size/2} ${camera_height/2}" rpy="0 ${camera_pitch} 0"/>
-    <origin xyz="0.0 0.0 0.0" rpy="0 ${camera_pitch} 0"/>
     <parent link="camera_stick_link"/>
     <child link="camera_link"/>
   </joint>
