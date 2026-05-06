@@ -4,7 +4,7 @@ This package, built with ROS 2 Jazzy Jalisco and Gazebo Harmonic, launches a sim
 
 ![vehicle simulation](https://github.com/user-attachments/assets/1726cb9f-d4c0-4b1a-90e4-4b3c395b9268)
 
-For the complete documentation on the development of this package, including setup, modeling, and simulation steps, please refer to the full guide here: [Ackermann Steering Vehicle Simulation](https://workabotic.com/2025/ackermann-steering-vehicle-simulation/)
+For the documentation on the development of this package, including setup, modeling, and simulation steps, please refer to the full guide here: [Ackermann Steering Vehicle Simulation](https://workabotic.com/2025/ackermann-steering-vehicle-simulation/).
 
 ## 💻 Installation
 
